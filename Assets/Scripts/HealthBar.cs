@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class HealthBar : MonoBehaviour
 {
     [SerializeField] private Player _player;
-    [SerializeField] private float _speedChangeHealth;
+    [SerializeField] private float _changingSpeed;
 
     private Slider _slider;
 
@@ -16,8 +16,11 @@ public class HealthBar : MonoBehaviour
         _slider = GetComponent<Slider>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        _slider.value = Mathf.MoveTowards(_slider.value, _player.Health, _speedChangeHealth);
+        if (_slider.value != _player.Health)
+        {
+            _slider.value = Mathf.MoveTowards(_slider.value, _player.Health, _changingSpeed);
+        }
     }
 }

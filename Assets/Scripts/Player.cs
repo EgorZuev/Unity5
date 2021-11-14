@@ -16,6 +16,10 @@ public class Player : MonoBehaviour
         {
             _health += health;
         }
+        else
+        {
+            _health = _healthBar.maxValue;
+        }
     }
 
     public void TakeHealth(int health)
@@ -23,6 +27,10 @@ public class Player : MonoBehaviour
         if (_health - health >= _healthBar.minValue)
         {
             _health -= health;
+        }
+        else
+        {
+            _health = _healthBar.minValue;
         }
     }
 }
