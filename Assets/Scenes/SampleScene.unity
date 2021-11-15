@@ -852,8 +852,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2089054399}
-        m_TargetAssemblyTypeName: PlayerHealth, Assembly-CSharp
-        m_MethodName: TakeHealth
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: TakeDamage
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1185,8 +1185,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2089054399}
-        m_TargetAssemblyTypeName: PlayerHealth, Assembly-CSharp
-        m_MethodName: AddHealth
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: Heal
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

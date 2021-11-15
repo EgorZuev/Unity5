@@ -10,27 +10,13 @@ public class Player : MonoBehaviour
 
     public float Health => _health;
 
-    public void AddHealth(int health)
+    public void Heal(int health)
     {
-        if(_health + health <= _healthBar.maxValue)
-        {
-            _health += health;
-        }
-        else
-        {
-            _health = _healthBar.maxValue;
-        }
+        _health = Mathf.Clamp(_health + health, _healthBar.minValue, _healthBar.maxValue);
     }
 
-    public void TakeHealth(int health)
+    public void TakeDamage(int health)
     {
-        if (_health - health >= _healthBar.minValue)
-        {
-            _health -= health;
-        }
-        else
-        {
-            _health = _healthBar.minValue;
-        }
+        _health = Mathf.Clamp(_health - health, _healthBar.minValue, _healthBar.maxValue);
     }
 }
