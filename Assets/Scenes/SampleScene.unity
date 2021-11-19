@@ -731,7 +731,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 2089054399}
-  _changingSpeed: 0.3
+  _changingSpeed: 0.2
 --- !u!1 &1314461531
 GameObject:
   m_ObjectHideFlags: 0
@@ -1712,5 +1712,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d88c3c378a69e624b9f525dbae289bd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _healthBar: {fileID: 894555899}
+  _healthBar: {fileID: 894555900}
   _health: 0

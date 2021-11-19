@@ -13,12 +13,12 @@ public class Player : MonoBehaviour
     public void Heal(int health)
     {
         _health = Mathf.Clamp(_health + health, _healthBar.MinValue, _healthBar.MaxValue);
-        _healthBar.StartChangingValue();
+        _healthBar.ChangeValue(health);
     }
 
     public void TakeDamage(int health)
     {
         _health = Mathf.Clamp(_health - health, _healthBar.MinValue, _healthBar.MaxValue);
-        _healthBar.StartChangingValue();
+        _healthBar.ChangeValue(health);
     }
 }

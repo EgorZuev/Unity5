@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,16 +12,28 @@ public class HealthBar : MonoBehaviour
 
     private Slider _slider;
 
+    public float MinValue => _slider.minValue;
+    public float MaxValue => _slider.maxValue;
+
     private void Awake()
     {
         _slider = GetComponent<Slider>();
     }
 
-    private void FixedUpdate()
+    public void StartChangingValue()
     {
-        if (_slider.value != _player.Health)
+        StopCoroutine(ChangeValue());
+        StartCoroutine(ChangeValue());
+    }
+
+    private IEnumerator ChangeValue()
+    {
+        var waitForFixedUpdate = new WaitForFixedUpdate();
+
+        while (_slider.value != _player.Health)
         {
             _slider.value = Mathf.MoveTowards(_slider.value, _player.Health, _changingSpeed);
+            yield return waitForFixedUpdate;
         }
     }
 }
