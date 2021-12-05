@@ -11,28 +11,30 @@ public class HealthBar : MonoBehaviour
     [SerializeField] private float _changingSpeed;
 
     private Slider _slider;
-
-    public float MinValue => _slider.minValue;
-    public float MaxValue => _slider.maxValue;
+    private Coroutine coroutine;
 
     private void Awake()
     {
         _slider = GetComponent<Slider>();
+        _slider.maxValue = _player.MaxHealth;
     }
 
-    public void StartChangingValue()
+    public void StartChangingValue(float health)
     {
-        StopCoroutine(ChangeValue());
-        StartCoroutine(ChangeValue());
+        if (coroutine != null)
+        {
+            StopCoroutine(coroutine);
+        }
+        coroutine = StartCoroutine(ChangeValue(health));
     }
 
-    private IEnumerator ChangeValue()
+    private IEnumerator ChangeValue(float health)
     {
         var waitForFixedUpdate = new WaitForFixedUpdate();
 
-        while (_slider.value != _player.Health)
+        while (_slider.value != health)
         {
-            _slider.value = Mathf.MoveTowards(_slider.value, _player.Health, _changingSpeed);
+            _slider.value = Mathf.MoveTowards(_slider.value, health, _changingSpeed);
             yield return waitForFixedUpdate;
         }
     }
