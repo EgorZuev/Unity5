@@ -11,7 +11,7 @@ public class HealthBar : MonoBehaviour
     [SerializeField] private float _changingSpeed;
 
     private Slider _slider;
-    private Coroutine coroutine;
+    private Coroutine _coroutine;
 
     private void Awake()
     {
@@ -21,11 +21,11 @@ public class HealthBar : MonoBehaviour
 
     public void StartChangingValue(float health)
     {
-        if (coroutine != null)
+        if (_coroutine != null)
         {
-            StopCoroutine(coroutine);
+            StopCoroutine(_coroutine);
         }
-        coroutine = StartCoroutine(ChangeValue(health));
+        _coroutine = StartCoroutine(ChangeValue(health));
     }
 
     private IEnumerator ChangeValue(float health)

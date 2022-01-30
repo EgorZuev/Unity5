@@ -1712,10 +1712,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d88c3c378a69e624b9f525dbae289bd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _healthBar: {fileID: 894555900}
   _health: 0
   _maxHealth: 100
-  ChangeHealthEvent:
+  ChangeHealth:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 894555900}
